@@ -1,0 +1,20 @@
+﻿using Alexon.ProductsManegment.Localization;
+using Volo.Abp.Authorization.Permissions;
+using Volo.Abp.Localization;
+
+namespace Alexon.ProductsManegment.Permissions;
+
+public class ProductsManegmentPermissionDefinitionProvider : PermissionDefinitionProvider
+{
+    public override void Define(IPermissionDefinitionContext context)
+    {
+        var myGroup = context.AddGroup(ProductsManegmentPermissions.GroupName);
+        //Define your own permissions here. Example:
+        //myGroup.AddPermission(ProductsManegmentPermissions.MyPermission1, L("Permission:MyPermission1"));
+    }
+
+    private static LocalizableString L(string name)
+    {
+        return LocalizableString.Create<ProductsManegmentResource>(name);
+    }
+}
